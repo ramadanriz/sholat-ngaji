@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Rubik Variable"'],
+        body: ['"Rubik Variable"'],
         arab: ['"Noto Naskh Arabic Variable"'],
       },
     },
