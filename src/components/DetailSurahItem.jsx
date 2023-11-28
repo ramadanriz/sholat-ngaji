@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 
-const DetailSurahItem = ({ verse }) => {
+const DetailSurahItem = ({ verse, latinStatus }) => {
   return (
     <div className='flex flex-col items-end justify-end border-b-2 border-neutral py-4'>
       <div className='relative flex w-full items-start justify-between'>
@@ -10,6 +10,7 @@ const DetailSurahItem = ({ verse }) => {
         <p className='text-right font-arab text-4xl font-bold leading-relaxed'>{verse.text.arab}</p>
       </div>
       <div className='mb-6 flex w-full flex-col items-start justify-start'>
+        {latinStatus ? <p className='mt-2 text-left italic font-medium text-primary'>{verse.text.transliteration.en}</p> : null}
         <p className='mt-6 text-left font-medium leading-relaxed tracking-wide'>{verse.translation.id}</p>
       </div>
     </div>
@@ -18,6 +19,7 @@ const DetailSurahItem = ({ verse }) => {
 
 DetailSurahItem.propTypes = {
   verse: PropTypes.object,
+  latinStatus: PropTypes.bool,
 }
 
 export default DetailSurahItem
