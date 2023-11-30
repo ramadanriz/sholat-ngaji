@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom"
 import { useFetch } from "../hooks/useFetch"
+import { useState } from "react"
 import Heading from "../fragments/Heading"
 import DetailSurahList from "../fragments/DetailSurahList"
-import { useState } from "react"
 import DetailSurahFeature from "../fragments/DetailSurahFeature"
 import TafsirModal from "../components/TafsirModal"
+import PreviousNextSurah from "../fragments/PreviousNextSurah"
 
 const DetailSurahPage = () => {
   const { surahId } = useParams()
@@ -27,7 +28,9 @@ const DetailSurahPage = () => {
           <DetailSurahFeature onLatin={latinToggle} />
           <TafsirModal id='modal' data={data} />
           <div className='my-7 w-full'>
+            <PreviousNextSurah surahNumber={surahId} />
             <DetailSurahList data={data} latinStatus={isLatinOpen} />
+            <PreviousNextSurah surahNumber={surahId} />
           </div>
         </>
       )}
