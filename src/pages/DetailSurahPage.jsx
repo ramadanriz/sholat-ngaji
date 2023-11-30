@@ -4,6 +4,7 @@ import Heading from "../fragments/Heading"
 import DetailSurahList from "../fragments/DetailSurahList"
 import { useState } from "react"
 import DetailSurahFeature from "../fragments/DetailSurahFeature"
+import TafsirModal from "../components/TafsirModal"
 
 const DetailSurahPage = () => {
   const { surahId } = useParams()
@@ -24,6 +25,7 @@ const DetailSurahPage = () => {
         <>
           <Heading title={data.data.name.transliteration.id} subTitle={data.data.name.translation.id + ". Surah ke-" + data.data.number + ". " + data.data.revelation.id} />
           <DetailSurahFeature onLatin={latinToggle} />
+          <TafsirModal id='modal' data={data} />
           <div className='my-7 w-full'>
             <DetailSurahList data={data} latinStatus={isLatinOpen} />
           </div>
