@@ -1,7 +1,7 @@
 import { format } from "date-fns"
 import id from "date-fns/locale/id"
 import { MdHome, MdAccessTime } from "react-icons/md"
-import { FaBookQuran, FaHandsPraying } from "react-icons/fa6"
+import { FaBookQuran, FaHandsPraying, FaList } from "react-icons/fa6"
 
 export const date = new Date()
 export const tahun = format(date, "yyyy")
@@ -37,6 +37,11 @@ export const navbarLinks = [
     link: "/doa",
     name: "doa",
     icon: <FaHandsPraying />,
+  },
+  {
+    link: "/asmaul-husna",
+    name: "asmaul husna",
+    icon: <FaList />,
   },
 ]
 

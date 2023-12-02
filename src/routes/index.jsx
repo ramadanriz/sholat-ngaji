@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
 import BaseLayout from "../layouts/BaseLayout"
 import { HomePage, ErrorPage, SholatPage, QuranPage, DetailSholatPage, DetailSurahPage, DoaPage } from "../pages"
+import AsmaulHusnaPage from "../pages/AsmaulHusnaPage"
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path: "/doa",
         element: <DoaPage />,
+      },
+      {
+        path: "/asmaul-husna",
+        element: <AsmaulHusnaPage />,
       },
     ],
   },

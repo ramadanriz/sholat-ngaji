@@ -7,7 +7,7 @@ const Navbar = () => {
       {navbarLinks.map((link) => (
         <NavLink key={link.name} to={link.link} className={({ isActive }) => (isActive ? "active text-accent" : "")}>
           <div className='text-3xl'>{link.icon}</div>
-          <span className='btm-nav-label capitalize'>{link.name}</span>
+          <span className='btm-nav-label capitalize hidden md:inline'>{link.name}</span>
         </NavLink>
       ))}
     </div>
