@@ -2,13 +2,13 @@ import { useParams } from "react-router-dom"
 import { useFetch } from "../hooks/useFetch"
 import { format } from "date-fns"
 import id from "date-fns/locale/id"
-import { jadwalSholatList, numBulan, numTahun } from "../utils/constant"
+import { jadwalSholatList } from "../utils/constant"
 import Heading from "../fragments/Heading"
 import JadwalSholatTable from "../fragments/JadwalSholatTable"
 
 const DetailSholatPage = () => {
   const { cityId } = useParams()
-  const { data, isLoading } = useFetch(`https://api.myquran.com/v1/sholat/jadwal/${cityId}/${numTahun}/${numBulan}`)
+  const { data, isLoading } = useFetch(`https://adzan-indonesia-api.vercel.app/adzan?cityId=${cityId}`)
   const thisMonth = format(new Date(), `MMMM yyyy`, {
     locale: id,
   })
@@ -21,7 +21,7 @@ const DetailSholatPage = () => {
         </div>
       ) : (
         <>
-          <Heading title={"Jadwal Sholat " + data.data.lokasi} subTitle={"Provinsi " + data.data.daerah + ", Bulan " + thisMonth} />
+          <Heading title={"Jadwal Sholat " + data.data.city.city} subTitle={"Bulan " + thisMonth} />
           <div className='overflow-x-auto my-10'>
             <JadwalSholatTable heading={jadwalSholatList} data={data} />
           </div>

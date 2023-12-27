@@ -12,7 +12,7 @@ const JadwalSholatItem = ({ id, lokasi }) => {
 }
 
 JadwalSholatItem.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.number,
   lokasi: PropTypes.string,
 }
 

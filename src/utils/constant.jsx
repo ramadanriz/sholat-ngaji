@@ -13,7 +13,7 @@ export const currentDate = format(date, "dd MMMM yyyy", { locale: id })
 export const numTahun = Number(tahun)
 export const numBulan = Number(bulan)
 export const numTanggal = Number(hari)
-export const matchDate = format(date, "yyyy-MM-dd")
+export const matchDate = format(date, "dd")
 
 export const browser = typeof window !== "undefined"
 
