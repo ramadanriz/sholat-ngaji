@@ -11,9 +11,14 @@ const DetailSurahPage = () => {
   const { surahId } = useParams()
   const { data, isLoading } = useFetch(`https://api.quran.gading.dev/surah/${surahId}`)
   const [isLatinOpen, setIsLatinOpen] = useState(false)
+  const [isMurottalOpen, setIsMurottalOpen] = useState(false)
 
   function latinToggle() {
     setIsLatinOpen((isLatinOpen) => !isLatinOpen)
+  }
+
+  function murottalToggle() {
+    setIsMurottalOpen((isMurottalOpen) => !isMurottalOpen)
   }
 
   return (
@@ -25,11 +30,11 @@ const DetailSurahPage = () => {
       ) : (
         <>
           <Heading title={data.data.name.transliteration.id} subTitle={data.data.name.translation.id + ". Surah ke-" + data.data.number + ". " + data.data.revelation.id} />
-          <DetailSurahFeature onLatin={latinToggle} />
+          <DetailSurahFeature onLatin={latinToggle} onMurottal={murottalToggle} />
           <TafsirModal id='modal' data={data} />
           <div className='my-7 w-full'>
             <PreviousNextSurah surahNumber={surahId} />
-            <DetailSurahList data={data} latinStatus={isLatinOpen} />
+            <DetailSurahList data={data} latinStatus={isLatinOpen} murottalStatus={isMurottalOpen} />
             <PreviousNextSurah surahNumber={surahId} />
           </div>
         </>
