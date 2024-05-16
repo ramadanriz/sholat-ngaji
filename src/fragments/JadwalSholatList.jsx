@@ -5,7 +5,7 @@ const JadwalSholatList = ({ cities }) => {
   return cities.length > 0 ? (
     <div className='flex flex-wrap gap-3 justify-center text-center'>
       {cities.map((city) => (
-        <JadwalSholatItem key={city.id} id={city.id} lokasi={city.city} />
+        <JadwalSholatItem key={city.id} id={city.id} lokasi={city.lokasi} />
       ))}
     </div>
   ) : (

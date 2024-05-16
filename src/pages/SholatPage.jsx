@@ -5,7 +5,7 @@ import Search from "../components/Search"
 import JadwalSholatList from "../fragments/JadwalSholatList"
 
 const SholatPage = () => {
-  const { data, isLoading } = useFetch("https://adzan-indonesia-api.vercel.app/city")
+  const { data, isLoading } = useFetch("https://api.myquran.com/v2/sholat/kota/semua")
   const [searchItem, setSearchItem] = useState("")
   const [filteredCities, setFilteredCities] = useState([])
 
@@ -13,7 +13,7 @@ const SholatPage = () => {
     const searchTerm = e.target.value
     setSearchItem(searchTerm)
 
-    const filteredItems = data.data.filter((city) => city.city.toLowerCase().includes(searchTerm.toLowerCase()))
+    const filteredItems = data.data.filter((city) => city.lokasi.toLowerCase().includes(searchTerm.toLowerCase()))
 
     setFilteredCities(filteredItems)
   }
